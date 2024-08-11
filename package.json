@@ -1,0 +1,179 @@
+{
+    "name": "asaasintegrationservicefornotion",
+    "version": "1.0.0",
+    "description": "Seamlessly synchronize your Asaas transactions with Notion, with enterprise-level security, performance optimizations, and future-proof compatibility.",
+    "author": {
+        "name": "David C Cavalcante",
+        "email": "davcavalcante@proton.me",
+        "organisation": "Takk Innovate Studio",
+        "url": "https://takk.ag"
+    },
+    "licenses": [
+        {
+            "type": "Apache-2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        },
+        {
+            "type": "CC-BY-4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Takk8IS/AsaasIntegrationServiceForNotion.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Takk8IS/AsaasIntegrationServiceForNotion/issues"
+    },
+    "homepage": "https://github.com/Takk8IS/AsaasIntegrationServiceForNotion#readme",
+    "keywords": [
+        "davcavalcante",
+        "david-c-cavalcante",
+        "takk8is",
+        "takk-innovate-studio",
+        "fjallstoppur",
+        "asaas",
+        "notion",
+        "integration",
+        "automation",
+        "fintech",
+        "productivity",
+        "saaS",
+        "cloud",
+        "transaction",
+        "sync",
+        "performance",
+        "security",
+        "future-proof"
+    ],
+    "engines": {
+        "node": ">=20.x",
+        "npm": ">=9.x",
+        "chrome": ">=115",
+        "firefox": ">=110",
+        "edge": ">=100"
+    },
+    "type": "module",
+    "main": "AsaasNotionIntegration.js",
+    "preferGlobal": true,
+    "sideEffects": false,
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/Takk8IS"
+    },
+    "contributors": [
+        {
+            "name": "Takk Innovate Studio",
+            "email": "say@takk.ag"
+        },
+        {
+            "name": "Fjallstoppur",
+            "email": "fjallstoppur@proton.me"
+        }
+    ],
+    "dependencies": {
+        "@notionhq/client": "*",
+        "async-lock": "*",
+        "dotenv": "*",
+        "node-cron": "*",
+        "node-fetch": "*",
+        "p-queue": "*",
+        "uuid": "*",
+        "winston": "*",
+        "crypto": "*",
+        "axios": "*",
+        "typescript": "*"
+    },
+    "devDependencies": {
+        "eslint": "*",
+        "jest": "*",
+        "nodemon": "*",
+        "prettier": "*",
+        "webpack": "*",
+        "webpack-cli": "*",
+        "babel-loader": "*"
+    },
+    "scripts": {
+        "link-deps": "npm link @notionhq/client async-lock crypto dotenv eslint jest node-cron node-fetch nodemon p-queue prettier uuid winston axios typescript",
+        "postinstall": "npm run build",
+        "start": "node --no-deprecation AsaasNotionIntegration.js",
+        "dev": "nodemon --no-deprecation AsaasNotionIntegration.js",
+        "format": "prettier --write '**/*.{js,ts}'",
+        "lint": "eslint . --ext .js,.ts --fix",
+        "test": "jest --coverage",
+        "analyze": "webpack --config webpack.config.js --analyze",
+        "build": "webpack --config webpack.config.js --mode production",
+        "prepare-release": "npm run lint && npm run test && npm run build",
+        "build-extension": "mkdir -p package_extension && cp manifest.json background.js content.js popup.js popup.html AUTHORS.md FUNDING.yml LICENSE.md README.md package_extension/ && cp -r images package_extension/"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es2022": true,
+            "node": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended",
+            "prettier"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 2023,
+            "sourceType": "module"
+        },
+        "rules": {
+            "indent": [
+                "error",
+                2
+            ],
+            "linebreak-style": [
+                "error",
+                "unix"
+            ],
+            "quotes": [
+                "error",
+                "double"
+            ],
+            "semi": [
+                "error",
+                "always"
+            ],
+            "no-console": "warn",
+            "no-unused-vars": "warn",
+            "strict": [
+                "error",
+                "global"
+            ]
+        }
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverage": true,
+        "coverageDirectory": "coverage",
+        "coverageReporters": [
+            "json",
+            "lcov",
+            "text",
+            "clover"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/jest.setup.js"
+        ]
+    },
+    "browserslist": [
+        "Chrome >= 115",
+        "Firefox >= 110",
+        "Edge >= 100",
+        "Safari >= 16"
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "davcavalcante@proton.me"
+        }
+    },
+    "manifest_version": 3
+}
